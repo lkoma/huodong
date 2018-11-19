@@ -41,7 +41,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             template: 'index.html',
             inject: true,
             favicon: './favicon.ico',
-            title: '文物加后台管理系统',
+            title: '文物加活动',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
