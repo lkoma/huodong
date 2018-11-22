@@ -8,7 +8,7 @@ const host = Object.values(interfaces).reduce((pre, cur) => {
     }
     return pre;
 });
-const port = 8888;
+const port = 8099;
 
 module.exports = {
     dev: {

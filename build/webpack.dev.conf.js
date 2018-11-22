@@ -33,6 +33,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         new CaseSensitivePathsPlugin(),
         new WatchMissingNodeModulesPlugin(resolve('node_modules')),
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.ProvidePlugin({
+            'jQuery': 'jquery',
+            '$': 'jquery',
+            'windows.jQuery': 'jquery'
+        }),
         new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
         new webpack.NoEmitOnErrorsPlugin(),
         // https://github.com/ampedandwired/html-webpack-plugin

@@ -22,7 +22,7 @@
             </ul>
         </div>
         <audio
-            src="static/image/huaguang/wave.mp3"
+            src="static/media/huaguang/wave.mp3"
             ref="bgm"
             muted
             autoplay="autoplay"
@@ -39,20 +39,25 @@ export default {
         return {
             topBtns: [
                 { name: 'xs' },
-                { name: 'jb' },
-                { name: 'zt' }
+                { name: 'jb' }
             ],
             bottomBtns: [
                 { name: 'vr' },
-                { name: 'glb' }
-            ]
+                { name: 'zt' }
+            ],
+            conf: {
+                xs: '/novel',
+                jb: '/guessdifferent',
+                zt: '/project'
+            }
         };
     },
     mounted() {
     },
     methods: {
-        clickHandle() {
-            // this.$refs.bgm.play();
+        clickHandle(type) {
+            this.$refs.bgm.play();
+            this.$router.push(this.conf[type]);
         }
     }
 };
@@ -149,6 +154,7 @@ export default {
         bottom 0
         z-index 6
         padding 0 .56rem
+        z-index 10
         .top-btns
             display flex
             justify-content space-around
@@ -163,10 +169,6 @@ export default {
                     background-image url('./assets/image/jb_01.png')
                     &:active
                         background-image url('./assets/image/jb_02.png')
-                &:nth-child(3)
-                    background-image url('./assets/image/zt_01.png')
-                    &:active
-                        background-image url('./assets/image/zt_02.png')
                 &:nth-of-type(odd)
                     animation btn1 3s linear infinite both
                 &:nth-of-type(even)
@@ -184,9 +186,9 @@ export default {
                     &:active
                         background-image url('./assets/image/vr_02.png')
                 &:nth-child(2)
-                    background-image url('./assets/image/glb_01.png')
+                    background-image url('./assets/image/zt_01.png')
                     &:active
-                        background-image url('./assets/image/glb_02.png')
+                        background-image url('./assets/image/zt_02.png')
                 &:nth-of-type(odd)
                     animation btn1 3s linear infinite both
                 &:nth-of-type(even)

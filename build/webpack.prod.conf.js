@@ -67,6 +67,11 @@ const webpackConfig = merge(baseWebpackConfig, {
         new webpack.optimize.OccurrenceOrderPlugin(true),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin(),
+        new webpack.ProvidePlugin({
+            'jQuery': 'jquery',
+            '$': 'jquery',
+            'windows.jQuery': 'jquery'
+        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             minChunks(module) {

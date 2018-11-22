@@ -28,4 +28,21 @@
     <body>
       	<div id="app"></div>
     </body>
+	<script>
+		document.body.ontouchstart = (e) => {
+				if (e.touches.length >= 2) {
+					e.preventDefault();
+				}
+			};
+			document.body.ontouchmove = (e) => {
+				if (e.touches.length >= 2) {
+					e.preventDefault();
+				}
+			};
+			document.body.ontouchend = (e) => {
+				if (e.touches.length >= 2) {
+					e.preventDefault();
+				}
+			};
+	</script>
 </html>
