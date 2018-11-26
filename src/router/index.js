@@ -8,61 +8,58 @@ export default new Router({
         {
             path: '/',
             name: 'Base',
-            component: () => import(/* webpackChunkName: "base-view" */ '@src/App'),
-            redirect: { name: 'Huaguang' },
+            redirect: { name: 'Huaguang' }
+        },
+        {
+            path: '/huaguang',
+            name: 'Huaguang',
+            component: () => import(/* webpackChunkName: "huaguang-view" */ '@views/huaguang/Index')
+        },
+        {
+            path: '/guessdifferent',
+            component: () => import(/* webpackChunkName: "guessDifferent-view" */ '@views/guessDifferent/Index'),
             children: [
                 {
-                    path: '/huaguang',
-                    name: 'Huaguang',
-                    component: () => import(/* webpackChunkName: "huaguang-view" */ '@views/huaguang/Index')
+                    path: '/',
+                    name: 'guessDifferentHomePage',
+                    component: () => import(/* webpackChunkName: "guessDifferentHomePage-view" */ '@views/guessDifferent/HomePage')
                 },
                 {
-                    path: '/guessdifferent',
-                    component: () => import(/* webpackChunkName: "guessDifferent-view" */ '@views/guessDifferent/Index'),
-                    children: [
-                        {
-                            path: '/',
-                            name: 'guessDifferentHomePage',
-                            component: () => import(/* webpackChunkName: "guessDifferentHomePage-view" */ '@views/guessDifferent/HomePage')
-                        },
-                        {
-                            path: 'museum',
-                            name: 'guessDifferentMuseum',
-                            component: () => import(/* webpackChunkName: "guessDifferentMuseum-view" */ '@views/guessDifferent/Museum')
-                        },
-                        {
-                            path: 'level',
-                            name: 'guessDifferentLevel',
-                            component: () => import(/* webpackChunkName: "guessDifferentLevel-view" */ '@views/guessDifferent/Level')
-                        },
-                        {
-                            path: 'detail',
-                            name: 'guessDifferentDetail',
-                            component: () => import(/* webpackChunkName: "guessDifferentDetail-view" */ '@views/guessDifferent/Detail')
-                        },
-                        {
-                            path: 'result',
-                            name: 'guessDifferentResult',
-                            component: () => import(/* webpackChunkName: "guessDifferentResult-view" */ '@views/guessDifferent/Result')
-                        }
-                    ]
+                    path: 'museum',
+                    name: 'guessDifferentMuseum',
+                    component: () => import(/* webpackChunkName: "guessDifferentMuseum-view" */ '@views/guessDifferent/Museum')
                 },
                 {
-                    path: '/novel',
-                    name: 'novel',
-                    component: () => import(/* webpackChunkName: "novel-view" */ '@views/novel/index')
+                    path: 'level',
+                    name: 'guessDifferentLevel',
+                    component: () => import(/* webpackChunkName: "guessDifferentLevel-view" */ '@views/guessDifferent/Level')
                 },
                 {
-                    path: '/project',
-                    name: 'project',
-                    component: () => import(/* webpackChunkName: "novel-view" */ '@views/huaguang/project')
+                    path: 'detail',
+                    name: 'guessDifferentDetail',
+                    component: () => import(/* webpackChunkName: "guessDifferentDetail-view" */ '@views/guessDifferent/Detail')
                 },
                 {
-                    path: '/demo',
-                    name: 'demo',
-                    component: () => import(/* webpackChunkName: "demo-view" */ '@views/novel/demo')
+                    path: 'result',
+                    name: 'guessDifferentResult',
+                    component: () => import(/* webpackChunkName: "guessDifferentResult-view" */ '@views/guessDifferent/Result')
                 }
             ]
+        },
+        {
+            path: '/novel',
+            name: 'novel',
+            component: () => import(/* webpackChunkName: "novel-view" */ '@views/novel/index')
+        },
+        {
+            path: '/project',
+            name: 'project',
+            component: () => import(/* webpackChunkName: "novel-view" */ '@views/huaguang/project')
+        },
+        {
+            path: '/vr',
+            name: 'vr',
+            component: () => import(/* webpackChunkName: "vr-view" */ '@views/huaguang/vr')
         }
     ]
 });

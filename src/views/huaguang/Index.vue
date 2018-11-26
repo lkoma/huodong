@@ -4,6 +4,7 @@
             <div class="boat"></div>
             <div class="bottom-wave"></div>
             <div class="top-wave"></div>
+            <div @click="bgmBox" class="hideBox"></div>
         </div>
         <div class="btns">
             <ul class="top-btns">
@@ -27,14 +28,20 @@
             muted
             autoplay="autoplay"
             loop="loop"
-            preload="auto">
+            preload="auto"
+            @canplay="readyPlay">
         </audio>
+        <!-- <vr ref="vr"></vr> -->
     </div>
 </template>
 
 <script>
+import vr from './components/vr';
 
 export default {
+    components: {
+        vr
+    },
     data() {
         return {
             topBtns: [
@@ -46,18 +53,22 @@ export default {
                 { name: 'zt' }
             ],
             conf: {
-                xs: '/novel',
                 jb: '/guessdifferent',
-                zt: '/project'
+                zt: '/project',
+                xs: '/novel',
+                vr: '/vr'
             }
         };
     },
-    mounted() {
-    },
     methods: {
         clickHandle(type) {
+            type === 'vr' ? this.$emit('showVr') : this.$router.push(this.conf[type]);
+        },
+        bgmBox() {
             this.$refs.bgm.play();
-            this.$router.push(this.conf[type]);
+        },
+        readyPlay() {
+            this.$refs.bgm.play();
         }
     }
 };
@@ -84,32 +95,32 @@ export default {
         transform translate3d(1rem,0,0)
     100%
         transform translate3d(0,0,0)
-@keyframes btn1
-  0%
-        transform translate3d(0)
-  20%
-        transform translate3d(-0.02rem, .02rem, 0)
-  40%
-        transform translate3d(-0.02rem, -0.02rem, 0)
-  60%
-        transform translate3d(.02rem, .02rem, 0)
-  80%
-        transform translate3d(.02rem, -0.02rem, 0)
-  100%
-        transform translate3d(0)
-@keyframes btn2
-  0%
-        transform translate3d(0)
-  20%
-        transform translate3d(.02rem, -0.02rem, 0)
-  40%
-        transform translate3d(.02rem, .02rem, 0)
-  60%
-        transform translate3d(-0.02rem, -0.02rem, 0)
-  80%
-        transform translate3d(-0.02rem, .02rem, 0)
-  100%
-        transform translate3d(0)
+// @keyframes btn1
+//   0%
+//         transform translate3d(0)
+//   20%
+//         transform translate3d(-0.02rem, .02rem, 0)
+//   40%
+//         transform translate3d(-0.02rem, -0.02rem, 0)
+//   60%
+//         transform translate3d(.02rem, .02rem, 0)
+//   80%
+//         transform translate3d(.02rem, -0.02rem, 0)
+//   100%
+//         transform translate3d(0)
+// @keyframes btn2
+//   0%
+//         transform translate3d(0)
+//   20%
+//         transform translate3d(.02rem, -0.02rem, 0)
+//   40%
+//         transform translate3d(.02rem, .02rem, 0)
+//   60%
+//         transform translate3d(-0.02rem, -0.02rem, 0)
+//   80%
+//         transform translate3d(-0.02rem, .02rem, 0)
+//   100%
+//         transform translate3d(0)
 .huaguang
     size 100%
     background url('./assets/image/bg.png')
@@ -117,9 +128,13 @@ export default {
     position relative
     overflow hidden
     .boat-wrap
-        size 100% 50rem
+        size 100%
         position absolute
         bottom 0
+        .hideBox
+            size 4rem
+            position relative
+            z-index 20
         .boat
             size 8.36rem 10.32rem
             background url('./assets/image/boat.png')
@@ -169,10 +184,10 @@ export default {
                     background-image url('./assets/image/jb_01.png')
                     &:active
                         background-image url('./assets/image/jb_02.png')
-                &:nth-of-type(odd)
-                    animation btn1 3s linear infinite both
-                &:nth-of-type(even)
-                    animation btn2 3s linear infinite both
+                // &:nth-of-type(odd)
+                //     animation btn1 3s linear infinite both
+                // &:nth-of-type(even)
+                //     animation btn2 3s linear infinite both
         .bottom-btns
             display flex
             justify-content space-around
@@ -189,8 +204,8 @@ export default {
                     background-image url('./assets/image/zt_01.png')
                     &:active
                         background-image url('./assets/image/zt_02.png')
-                &:nth-of-type(odd)
-                    animation btn1 3s linear infinite both
-                &:nth-of-type(even)
-                    animation btn2 3s linear infinite both
+                // &:nth-of-type(odd)
+                //     animation btn1 3s linear infinite both
+                // &:nth-of-type(even)
+                //     animation btn2 3s linear infinite both
 </style>

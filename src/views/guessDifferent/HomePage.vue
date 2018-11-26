@@ -90,6 +90,7 @@ export default {
 <style lang="stylus" scoped>
 .page
     size 100%
+    position fixed
     background url('./assets/img/index_bg.png') 0 0/100% 100% no-repeat
     display flex
     flex-direction column

@@ -44,7 +44,7 @@ export default {
         transform translateX(-50%)
         overflow hidden
     .img-wrap
-        size 101% 100%
+        size 102% 100%
         overflow-y scroll
     .img
         width 100%

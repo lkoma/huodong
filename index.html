@@ -11,6 +11,7 @@
 		<meta http-equiv="Expires" content="0" />
 		<title><%= htmlWebpackPlugin.options.title %></title>
 		<script type="text/javascript">
+			window.aaa = 0;
 			(function (doc, win) {
 				var docEl = doc.documentElement,
 					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -24,6 +25,7 @@
 				doc.addEventListener('DOMContentLoaded', recalc, false);
 			})(document, window);
 	</script>
+	<script src="static/vr/Build/UnityLoader.js"></script>
     </head>
     <body>
       	<div id="app"></div>
