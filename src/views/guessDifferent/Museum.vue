@@ -60,7 +60,9 @@ export default {
             }, 0);
         }, time);
         setTimeout(() => {
-            this.$refs.gameStart.show();
+            if (this.$refs.gameStart) {
+                this.$refs.gameStart.show();
+            }
         }, time + time2);
     },
     methods: {

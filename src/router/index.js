@@ -55,11 +55,6 @@ export default new Router({
             path: '/project',
             name: 'project',
             component: () => import(/* webpackChunkName: "novel-view" */ '@views/huaguang/project')
-        },
-        {
-            path: '/vr',
-            name: 'vr',
-            component: () => import(/* webpackChunkName: "vr-view" */ '@views/huaguang/vr')
         }
     ]
 });

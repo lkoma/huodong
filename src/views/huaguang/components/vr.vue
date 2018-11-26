@@ -27,7 +27,6 @@ export default {
                 onProgress(a, progress) {
                     if (progress >= 1) {
                         that.loading = false;
-                        window.aaa += 1;
                     }
                 }
             }
@@ -35,15 +34,13 @@ export default {
     },
     methods: {
         show() {
-            this.vrShow = true;
-            this.VR.SendMessage('webglHandler', 'ShowModel', 'qing_hua_he_xie_wen_ling_kou_pan');
             this.VR.SendMessage('webglHandler', 'Active', '1');
+            this.VR.SendMessage('webglHandler', 'ShowModel', 'qing_hua_he_xie_wen_ling_kou_pan');
+            this.vrShow = true;
         },
         hide() {
             this.VR.SendMessage('webglHandler', 'Active', '0');
-            this.VR.SendMessage('webglHandler', 'ShowModel', '');
             this.vrShow = false;
-            console.log('隐藏了');
         }
     }
 };
