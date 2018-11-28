@@ -2,7 +2,7 @@
     <div class="toast-page">
         <div
             class="title"
-            :style="{'backgroundImage': 'url(static/image/guessDifferent/img_success.png)'}">
+            :style="{'backgroundImage': 'url(static/image/guessDifferent/img_pass.png)'}">
         </div>
         <p class="text">少年你通过了南海博物馆鉴宝特训，特发此证！</p>
         <img src="static/image/guessDifferent/info_certifi.png" alt="" class="pic">
