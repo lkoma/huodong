@@ -132,7 +132,6 @@ export default {
             if (playing) {
                 this.$refs.bgm.pause();
                 this.playing = false;
-                console.log(this.bgm);
                 return;
             }
             this.$refs.bgm.play();
@@ -226,9 +225,8 @@ export default {
         box-shadow:0 0 20px #ccc;
     .operation
         size 100% .4rem
-        // background red
         position absolute
-        top 9.2rem
+        top 9.5rem
         left 0
         padding 0 2.6rem
         display flex
